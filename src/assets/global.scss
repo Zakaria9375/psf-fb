@@ -1,0 +1,102 @@
+// my golden color for logo
+$gclr: #ffdf00;
+// my white color and background for buttons in the header
+$wclr: white;
+$pclr: rgba(255, 255, 255, 0.8);
+$bclr: #0e1335;
+// toggle button arrow
+$rclr: rgb(226, 120, 108);
+$rlclr: rgb(255, 160, 140);
+$rdclr: rgb(180, 80, 70);
+//******************************
+//background colors contact
+$bgclr1: rgb(22, 32, 58);
+// unused colors
+$clr1: rgb(33, 150, 243);
+$clr2: rgb(86, 127, 159);
+//green colors
+$glclr: rgb(13, 141, 77);
+$gdclr: #008040;
+//linear gradient colors
+$lgPORTO: linear-gradient(45deg, rgb(36, 52, 95) 0%, rgb(32, 46, 84) 100%);
+$lgHEAD: linear-gradient(45deg, rgb(22, 32, 58) 0%, rgb(32, 46, 84) 100%);
+$aSide: linear-gradient(45deg, rgb(36, 52, 95) 0%, rgb(28, 40, 73) 100%);
+$about: linear-gradient(45deg, rgb(28, 40, 73) 0%, rgb(36, 52, 95) 100%);
+//collapsed transition for the header
+$ctrans: 0.5s;
+$mtrans: 0.3s;
+
+// box shadow
+$bxShadow: 0 10px 15px -3px rgba(0, 0, 0, 0.7);
+
+@mixin less($size) {
+	@media (max-width: $size) {
+		@content;
+	}
+}
+@mixin more($size) {
+	@media (min-width: $size) {
+		@content;
+	}
+}
+@mixin flexoo($d, $w, $h, $v) {
+	display: flex;
+	flex-direction: $d;
+	flex-wrap: $w;
+	justify-content: $h;
+	align-items: $v;
+}
+@mixin absoo($w, $h, $t, $l) {
+	position: absolute;
+	width: $w;
+	height: $h;
+	top: $t;
+	left: $l;
+}
+@mixin fontoo($size: 16px, $weight: normal, $color: $rclr) {
+	font-size: $size;
+	font-weight: $weight;
+	color: $color;
+}
+$smS: 768.5px;
+$mS: 992px;
+$lS: 1200px;
+$xlS: 1400px;
+
+@mixin sbp($point) {
+	@if $point == smS {
+		@media (max-width: 768.5px) {
+			@content;
+		}
+	} @else if $point == mS {
+		@media (min-width: 768.5px) and (max-width: 992px) {
+			@content;
+		}
+	} @else if $point == lS {
+		@media (min-width: 992px) and (max-width: 1200px) {
+			@content;
+		}
+	} @else if $point == xlS {
+		@media (min-width: 1200px) {
+			@content;
+		}
+	} @else if $point == xxlS {
+		@media (min-width: 1480px) {
+			@content;
+		}
+	}
+}
+
+@mixin show($t1, $d1, $t2, $d2, $ws) {
+	.diplayNone-enter-active {
+		transition: opacity $t1 $d1 ease, max-width $t2 $d2 ease;
+	}
+	.diplayNone-enter-from {
+		opacity: 0;
+		max-width: 0;
+	}
+	.diplayNone-enter-to {
+		opacity: 1;
+		max-width: $ws;
+	}
+}
