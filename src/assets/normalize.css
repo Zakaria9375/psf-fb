@@ -23,6 +23,7 @@ html {
 
 body {
 	margin: 0;
+	padding: 0;
 }
 
 /**
@@ -364,8 +365,6 @@ html {
 }
 
 body {
-	font-family: 'Lato', sans-serif;
-	font-family: "Open Sans", sans-serif;
 	background-color: #16203a;
 	color: white;
 }

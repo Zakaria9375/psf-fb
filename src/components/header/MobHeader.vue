@@ -38,7 +38,6 @@
 	</div>
 </template>
 <style lang="scss">
-	@use "@/assets/global.scss" as *;
 	.smallHeader {
 		background: $lgHEAD;
 		box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;

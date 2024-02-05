@@ -52,7 +52,6 @@
 </template>
 
 <style lang="scss">
-	@use "@/assets/global.scss" as *;
 	.infoHome {
 		padding: 20px;
 		margin-top: 36px;
@@ -100,11 +99,11 @@
 						transition: transform $mtrans ease;
 						animation: spinWords 8s ease infinite;
 						.techno {
-							@include flexoo(row, nowrap, flex-start, center);
+							@include flexoo(row, nowrap, flex-start, flex-start);
 							@include fontoo(28px, normal, $wclr);
 							.logo {
-								width: 28px;
-								height: 28px;
+								width: 36px;
+								height: 36px;
 								margin-right: 10px;
 								margin-left: 10px;
 							}

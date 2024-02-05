@@ -7,20 +7,18 @@
 <template>
 	<div class="pro-container">
 		<div class="overlay">
-			<div class="box-overlay"></div>
+			<div class="box-overlay"><i class="fa-regular fa-eye eye"></i></div>
 			<div class="pro-tech">
 				<span v-for="tech in project.techs">{{ tech }}</span>
 			</div>
 		</div>
-		<a href="">
-			<div class="pro-image">
-				<img :src="project.poster" :alt="project.title" />
-			</div>
-			<div class="pro-header">
-				<h4>{{ project.title }}</h4>
-				<p>{{ project.about }}</p>
-			</div>
-		</a>
+		<div class="pro-image">
+			<img :src="project.poster" :alt="project.title" />
+		</div>
+		<div class="pro-header">
+			<h4>{{ project.title }}</h4>
+			<p>{{ project.about }}</p>
+		</div>
 	</div>
 </template>
 
@@ -28,25 +26,31 @@
 	@use "@/assets/global.scss" as *;
 
 	.pro-container {
-		width: 330px;
-		height: 280px;
-		padding: 32px 16px 0;
+		border-radius: 8px;
+		width: 320px;
+		height: 270px;
 		position: relative;
 		color: white;
 		overflow: hidden;
+		box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 		.overlay {
 			position: absolute;
-			left: 16px;
 			top: -100%;
-			transition: 0.3s ease;
+			transition: all 0.3s ease;
 			.box-overlay {
-				background-color: rgba(0, 0, 0, 0.4);
-				width: 298px;
-				height: 168px;
+				background-color: rgba(0, 0, 0, 0.5);
+				width: 320px;
+				height: 170px;
+				@include flexoo(row, wrap, center, center);
+				.eye {
+					@include fontoo(28px, normal, #ddd);
+					opacity: 0;
+					transition: all 0.3s ease 0.15s;
+				}
 			}
 			.pro-tech {
-				width: 298px;
-				height: 80px;
+				width: 320px;
+				height: 100px;
 				@include flexoo(row, wrap, center, center);
 				gap: 8px;
 				span {
@@ -57,34 +61,42 @@
 			}
 		}
 		.pro-header {
-			width: 298px;
-			height: 80px;
-			padding: 10px;
+			width: 320px;
+			height: 100px;
+			padding: 16px;
 			background: $lgPORTO;
-			@include flexoo(column, wrap, space-between, center);
+			text-align: left;
 			h4 {
-				@include fontoo(20px, bold, $wclr);
+				@include fontoo(24px, 700, $wclr);
 				transition: 0.5s ease;
+				margin-bottom: 8px;
+				font-family: 'Raleway', sans-serif;
+				text-transform: capitalize;
 			}
 			p {
-				@include fontoo(16px, normal, white);
+				@include fontoo(18px, 400, #ddd);
 				transition: 0.5s ease;
+				margin: 8px 0;
+				text-transform: capitalize;
 			}
 		}
 		.pro-image {
-			width: 298px;
-			height: 168px;
+			width: 320px;
+			height: 170px;
 			img {
-				width: 298px;
-				height: 168px;
-				// background-image: url('public\images\shuffle-02.jpg')
+				width: 320px;
+				height: 170px;
 				background-position: center;
 				background-size: cover;
 			}
 		}
 		&:hover {
 			.overlay {
-				top: 32px;
+				top: 0;
+				.eye {
+					opacity: 1;
+					transform: rotateZ(360deg);
+				}
 			}
 			.pro-header {
 				h4,

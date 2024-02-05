@@ -1,13 +1,17 @@
 <script setup>
 	import { useRouter } from "vue-router";
-	import { computed } from "vue";
+	import { computed, ref } from "vue";
+	import { useFirestore, useCollection } from "vuefire";
+	import { collection } from "firebase/firestore";
+	const db = useFirestore();
+	const projects = useCollection(collection(db, "projects"));
 	const router = useRouter();
 	const { currentId } = defineProps({
 		currentId: { type: Number, required: true },
 	});
-	let length = 1;
+	let length = ref(projects.value.length);
 	const isIdExist = computed(() => {
-		if (length <= currentId < l) {
+		if (1 <= currentId < length.value) {
 			return true;
 		}
 		return false;

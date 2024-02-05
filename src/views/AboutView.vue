@@ -44,8 +44,9 @@
 			<div class="credentialContainer">
 				<div v-for="credit in credits" class="credit">
 					<h4>
-						{{ credit.title }}
 						<a :href="credit.link" target="_blank" rel="noopener noreferrer">
+							{{ credit.title }}
+
 							<i class="fa-solid fa-paperclip"></i>
 						</a>
 					</h4>
@@ -83,7 +84,7 @@
 				opacity: 0.5;
 			}
 			p {
-				@include fontoo(1.2rem, 500, $wclr);
+				@include fontoo(1.25rem, 500, $wclr);
 				line-height: 1.8;
 				opacity: 0.9;
 				padding-bottom: 1.25rem;
@@ -91,6 +92,7 @@
 			.ps {
 				@include flexoo(row, wrap, space-evenly, center);
 				margin-bottom: 1.25rem;
+				padding-top: 12px;
 				gap: 10px;
 				span {
 					padding: 0.8rem;
@@ -171,27 +173,26 @@
 			@include flexoo(column, wrap, center, center);
 			gap: 1rem;
 			.credit {
-				a {
-					text-decoration: none;
-					cursor: pointer;
-					
-					i {
-						margin: 8px;
-						font-size: 1.4rem;
-						color: $gclr;
-						
-					}
-					&:hover {
-						i {
-							transform: rotate(25deg);
-						}
-					}
-				}
 				h4 {
 					text-align: center;
 					line-height: 1.25;
-					@include fontoo(1.4rem, normal, $wclr);
 					opacity: 0.85;
+					a {
+						text-decoration: none;
+						cursor: pointer;
+						@include fontoo(1.4rem, normal, #ddd);
+						i {
+							margin: 8px;
+							font-size: 1.4rem;
+							color: $gclr;
+						}
+						&:hover {
+							i {
+								transform: rotate(25deg);
+							}
+							color: #fff;
+						}
+					}
 				}
 			}
 		}

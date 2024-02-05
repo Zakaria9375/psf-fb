@@ -90,7 +90,6 @@
 	</header>
 </template>
 <style lang="scss">
-	@use "@/assets/global.scss" as *;
 	header {
 		background: $lgHEAD;
 		box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px;
@@ -100,7 +99,7 @@
 		z-index: 3;
 		bottom: 0;
 		transition: $ctrans;
-
+		font-family: 'Roboto', sans-serif;
 		nav {
 			@include flexoo(column, nowrap, space-between, center);
 			height: 100%;
@@ -109,30 +108,35 @@
 			.logo {
 				@include flexoo(column, nowrap, center, center);
 				@include show(0.5s, 0.2s, 0.5s, 0.2s, 135px);
-				height: 88px;
+				height: 100px;
+				font-family: 'Raleway', sans-serif;
 				.zname {
 					transition: $mtrans;
 					span.z {
 						display: inline-block;
-						padding: 5px;
-						@include fontoo(30px, bold, $gclr);
+						padding: 4px;
+						@include fontoo(42px, 700, $gclr);
 						animation: bouncing 7.5s infinite;
+						font-family: 'Raleway', sans-serif;
 					}
 					span.name {
-						letter-spacing: 2px;
+						letter-spacing: 0.5px;
 						display: inline-block;
 						max-height: 59px;
-						padding-top: 35px;
+						padding-top: 32px;
 						overflow: hidden;
-						@include fontoo(24px, bold, $wclr);
+						@include fontoo(28px, bold, $wclr);
+						font-family: 'Raleway', sans-serif;
 					}
 				}
 				.desc {
+					padding: 10px;
 					span {
 						display: block;
-						max-height: 22px;
+						letter-spacing: 1px;
+						max-height: 28px;
 						overflow: hidden;
-						@include fontoo(16px, normal, $wclr);
+						@include fontoo(18px, 600, #eee);
 					}
 				}
 			}
@@ -148,12 +152,12 @@
 							border-radius: 10px;
 							@include flexoo(row, nowrap, space-between, center);
 							i {
-								@include fontoo(24px, bold, white);
+								@include fontoo(28px, bold, white);
 								padding: 10px;
 							}
 							span {
-								width: 101px;
-								@include fontoo(20px, 500, white);
+								width: 115px;
+								@include fontoo(22px, 500, white);
 								padding: 10px;
 								overflow: hidden;
 							}
@@ -172,11 +176,11 @@
 			}
 			.toggleb {
 				position: relative;
-				width: 38px;
-				height: 38px;
+				width: 40px;
+				height: 40px;
 				.toggleBtn {
-					width: 38px;
-					height: 38px;
+					width: 40px;
+					height: 40px;
 					margin: 5px;
 					position: absolute;
 					transform: translate(-5px, -5px);
@@ -186,15 +190,15 @@
 					z-index: 103;
 					@include flexoo(row, nowrap, center, center);
 					i {
-						@include fontoo(16px, 700, white);
+						@include fontoo(20px, 700, white);
 					}
 				}
 				&:before {
 					content: "";
 					border: 8px solid rgba(55, 140, 63, 0.6);
 					border-radius: 50%;
-					height: 38px;
-					width: 38px;
+					height: 40px;
+					width: 40px;
 					position: absolute;
 					top: -8px;
 					left: -8px;
@@ -203,13 +207,13 @@
 				}
 			}
 			.social {
-				padding: 10px;
+				padding: 8px;
 				li:first-child {
-					margin-bottom: 18px;
+					margin-bottom: 16px;
 				}
 				li {
 					a {
-						@include fontoo(28px, bold, white);
+						@include fontoo(36px, bold, white);
 						&:hover {
 							i {
 								scale: 1.3;

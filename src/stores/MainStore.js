@@ -4,7 +4,7 @@ import { ref, computed } from "vue";
 export const useMainStore = defineStore("main", () => {
 	const collapsed = ref(false);
 	const headerWidth = computed(() => {
-		const width = collapsed.value ? 75 : 200;
+		const width = collapsed.value ? 85 : 225;
 		return `${width}px`;
 	});
 

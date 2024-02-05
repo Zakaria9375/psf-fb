@@ -33,19 +33,20 @@
 	.portfolio-background {
 		background: $lgPORTO;
 		width: 100%;
-		min-height: 100vh;
+		min-height: 100dvh;
 		.portfolio-container {
 			text-align: center;
 			.main-heading {
 				width: 100%;
 				h2 {
 					padding: 30px 0 10px;
-					@include fontoo(32px, bold, $wclr);
-					letter-spacing: 1px;
+					@include fontoo(36px, 600, $wclr);
+					letter-spacing: 0.75px;
+					font-family: 'Raleway', sans-serif;
 				}
 				p {
 					padding: 15px 16px 25px;
-					@include fontoo(1.2rem, 400, $wclr);
+					@include fontoo(1.25rem, 400, $wclr);
 					opacity: 0.8;
 					> span {
 						@include fontoo(1.25rem, 500, rgb(250 146 100));
@@ -55,11 +56,13 @@
 				}
 			}
 			.content {
-				min-height: calc(100vh - 140px);
+				min-height: calc(100dvh - 144.4px);
 				width: 100%;
 				background-color: $bgclr1;
 				.projects-container {
+					padding: 32px;
 					@include flexoo(row, wrap, center, center);
+					gap: 28px;
 				}
 			}
 		}

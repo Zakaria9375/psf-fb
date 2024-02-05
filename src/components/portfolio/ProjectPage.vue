@@ -31,6 +31,10 @@
 							<h2>Description</h2>
 							<p>{{ project.description }}</p>
 						</div>
+						<div class="desc-sec" v-if="project.technical">
+							<h2>Technical Overview</h2>
+							<p>{{ project.technical }}</p>
+						</div>
 					</div>
 					<aside>
 						<ProjectDetailaSide :project="project" />
@@ -58,11 +62,15 @@
 			.main-heading {
 				padding-left: 40px;
 				h1 {
-					@include fontoo(32px, bold, $wclr);
+					@include fontoo(36px, bold, $wclr);
+					text-transform: capitalize;
+					margin: 12px 0;
+					text-align: left;
 				}
 				p {
 					padding: 0 0 15px;
-					@include fontoo(18px, normal, $pclr);
+					@include fontoo(20px, normal, $pclr);
+					text-transform: capitalize;
 				}
 			}
 		}
@@ -79,6 +87,7 @@
 				@include fontoo(1.1rem, 500, $wclr);
 				font-family: "Lato", sans-serif;
 				line-height: 1.5;
+				flex: 1;
 				@include more($mS) {
 					padding: 0 16px;
 					flex-basis: 65%;

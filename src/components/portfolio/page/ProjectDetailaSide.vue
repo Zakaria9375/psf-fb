@@ -11,6 +11,12 @@
 			<span v-for="tech in project.techs">{{ tech }}</span>
 		</div>
 	</div>
+	<div class="technologies" v-if="project.libs">
+		<h3>Libraries</h3>
+		<div class="tech" >
+			<span v-for="lib in project.libs">{{ lib }}</span>
+		</div>
+	</div>
 	<div class="source">
 		<h3>Repositories</h3>
 		<div class="repos">
@@ -26,7 +32,6 @@
 </template>
 
 <style scoped lang="scss">
-	@use "@/assets/global.scss" as *;
 	.technologies,
 	.source {
 		background: $aSide;

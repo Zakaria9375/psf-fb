@@ -53,7 +53,7 @@
 				transform: translateY(-50%);
 				width: 90px;
 				height: calc(100% - 40px);
-				@include fontoo(28px, bold, $wclr);
+				@include fontoo(28px, bold, #318ac2);
 				@include flexoo(row, nowrap, center, center);
 				user-select: none;
 				cursor: pointer;
