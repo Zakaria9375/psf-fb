@@ -13,9 +13,18 @@
 	</div>
 	<div class="technologies" v-if="project.libs">
 		<h3>Libraries</h3>
-		<div class="tech" >
+		<div class="tech">
 			<span v-for="lib in project.libs">{{ lib }}</span>
 		</div>
+	</div>
+
+	<div class="features" v-if="project.features">
+		<h3>Features</h3>
+		<ul class="all-features">
+			<li v-for="feature in project.features">
+				<i class="fa-solid fa-check"></i><span>{{ feature }}</span>
+			</li>
+		</ul>
 	</div>
 	<div class="source">
 		<h3>Repositories</h3>
@@ -33,7 +42,8 @@
 
 <style scoped lang="scss">
 	.technologies,
-	.source {
+	.source,
+	.features {
 		background: $aSide;
 		padding: 16px;
 		margin-bottom: 25px;
@@ -65,6 +75,23 @@
 				&:hover {
 					box-shadow: $bxShadow;
 					scale: 1.05;
+				}
+			}
+		}
+		.all-features {
+			@include flexoo(column, wrap, center, flex-start);
+			gap: 15px;
+
+			li {
+				text-align: start;
+				display: flex;
+				gap: 6px;
+				line-height: 1.15;
+				span {
+					display: block;
+				}
+				i {
+					color: $gclr;
 				}
 			}
 		}

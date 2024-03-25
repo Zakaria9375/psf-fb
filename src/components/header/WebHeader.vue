@@ -1,6 +1,7 @@
 <script setup>
 	import { onMounted } from "vue";
 	import { useMainStore } from "@/stores/MainStore.js";
+import IconFrontend from "./IconFrontend.vue";
 	const store = useMainStore();
 	const links = [
 		{
@@ -71,18 +72,16 @@
 			</div>
 			<div class="social">
 				<ul>
-					<li>
+					<li class="linkedin" title="linkedin" >
 						<a
 							href="https://www.linkedin.com/in/zakaria-ali-java/"
-							target="_blank"
+							target="_blank" rel="noopener noreferrer"
 						>
-							<i class="bx bxl-linkedin-square"></i
-						></a>
+							<i class="fa-brands fa-linkedin"></i></a>
 					</li>
-					<li>
-						<a href="https://github.com/Zakaria9375" target="_blank">
-							<i class="bx bxl-github"></i
-						></a>
+					<li title="github">
+						<a href="https://github.com/Zakaria9375" target="_blank" rel="noopener noreferrer">
+							<i class="fa-brands fa-github"></i></a>
 					</li>
 				</ul>
 			</div>
@@ -99,7 +98,7 @@
 		z-index: 3;
 		bottom: 0;
 		transition: $ctrans;
-		font-family: 'Roboto', sans-serif;
+		font-family: "Roboto", sans-serif;
 		nav {
 			@include flexoo(column, nowrap, space-between, center);
 			height: 100%;
@@ -109,7 +108,7 @@
 				@include flexoo(column, nowrap, center, center);
 				@include show(0.5s, 0.2s, 0.5s, 0.2s, 135px);
 				height: 100px;
-				font-family: 'Raleway', sans-serif;
+				font-family: "Raleway", sans-serif;
 				.zname {
 					transition: $mtrans;
 					span.z {
@@ -117,7 +116,7 @@
 						padding: 4px;
 						@include fontoo(42px, 700, $gclr);
 						animation: bouncing 7.5s infinite;
-						font-family: 'Raleway', sans-serif;
+						font-family: "Raleway", sans-serif;
 					}
 					span.name {
 						letter-spacing: 0.5px;
@@ -126,7 +125,7 @@
 						padding-top: 32px;
 						overflow: hidden;
 						@include fontoo(28px, bold, $wclr);
-						font-family: 'Raleway', sans-serif;
+						font-family: "Raleway", sans-serif;
 					}
 				}
 				.desc {
@@ -207,13 +206,13 @@
 				}
 			}
 			.social {
-				padding: 8px;
-				li:first-child {
-					margin-bottom: 16px;
-				}
+				padding: 16px;
 				li {
+					&:first-of-type {
+						margin-bottom: 24px
+					}
 					a {
-						@include fontoo(36px, bold, white);
+						@include fontoo(32px, bold, white);
 						&:hover {
 							i {
 								scale: 1.3;
@@ -222,6 +221,7 @@
 						}
 					}
 				}
+				
 			}
 		}
 	}

@@ -2,8 +2,12 @@
 	import ProjectCard from "@/components/portfolio/ProjectCard.vue";
 	import { useFirestore, useCollection } from "vuefire";
 	import { collection } from "firebase/firestore";
+	import { computed } from "vue";
 	const db = useFirestore();
 	const projects = useCollection(collection(db, "projects"));
+	const displayedProjects = computed(() => {
+		return projects.value.reverse();
+	});
 </script>
 <template>
 	<div class="portfolio-background">
@@ -17,12 +21,21 @@
 			<div class="content">
 				<div class="projects-container conatiner">
 					<router-link
-						v-for="project in projects"
+						v-for="project in displayedProjects"
 						:key="project.idP"
 						:to="{ name: 'projectDetail', params: { id: project.idP } }"
 					>
 						<ProjectCard :project="project" />
 					</router-link>
+				</div>
+				<div class="load-more">
+					<a
+						href="https://www.frontendmentor.io/profile/Zakaria9375"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						See more
+					</a>
 				</div>
 			</div>
 		</div>
@@ -42,7 +55,7 @@
 					padding: 30px 0 10px;
 					@include fontoo(36px, 600, $wclr);
 					letter-spacing: 0.75px;
-					font-family: 'Raleway', sans-serif;
+					font-family: "Raleway", sans-serif;
 				}
 				p {
 					padding: 15px 16px 25px;
@@ -63,6 +76,23 @@
 					padding: 32px;
 					@include flexoo(row, wrap, center, center);
 					gap: 28px;
+				}
+				.load-more {
+					margin-top: 32px;
+					a {
+						padding: 12px 24px;
+						color: #1a1a1a;
+						background-color: $rclr;
+						font-weight: 600;
+						font-size: 1.375rem;
+						border-radius: 8px;
+						text-transform: uppercase;
+						transition: 0.3s;
+						&:hover {
+							box-shadow: $bxShadow;
+							font-size: 1.4rem;
+						}
+					}
 				}
 			}
 		}

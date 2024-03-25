@@ -1,9 +1,14 @@
 <script setup>
 	import { useFirestore, useCollection } from "vuefire";
 	import { collection } from "firebase/firestore";
+	import { computed } from "vue";
+	import IconFrontend from "@/components/header/IconFrontend.vue";
 	const db = useFirestore();
 	const skills = useCollection(collection(db, "skills"));
 	const credits = useCollection(collection(db, "credits"));
+	const activeSkills = computed(() => {
+		return skills.value.filter((skill) => skill.active === true);
+	});
 </script>
 <template>
 	<div class="container">
@@ -21,17 +26,17 @@
 					<span>Driven by Challenge</span>
 					<span>Advice Listener</span>
 					<span>Working hard to be Distinctive</span>
-					<span>Collaborative Team Player</span>
+					<span>Team Player</span>
 				</div>
 			</div>
 			<div class="photo">
-				<img src="/images/zico.jpg" alt="" />
+				<img src="/images/zico.jpg" alt="my profile photo" />
 			</div>
 		</div>
 		<div class="skills">
 			<h1>Most used technologies</h1>
 			<div class="skillContainer">
-				<span v-for="skill in skills" :key="skill.idS" class="skill">
+				<span v-for="skill in activeSkills" :key="skill.idS" class="skill">
 					<span class="skilllogo">
 						<img :alt="skill.name" class="logo" :src="skill.source" />
 					</span>
@@ -52,6 +57,55 @@
 					</h4>
 				</div>
 			</div>
+		</div>
+		<div class="linksContainer">
+			<ul>
+				<li>
+					<a
+						href="https://www.linkedin.com/in/zakaria-ali-java/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<i class="fa-brands fa-linkedin"></i>
+						<span>Linkedin</span>
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://github.com/Zakaria9375"
+						target="_blank"
+						rel="noopener noreferrer"
+						title="github"
+					>
+						<i class="fa-brands fa-github"></i>
+						<span>Github</span>
+					</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a
+						href="https://www.frontendmentor.io/profile/Zakaria9375"
+						target="_blank"
+						rel="noopener noreferrer"
+						title="Frontend Mentor profile"
+					>
+						<IconFrontend class="icon" />
+						<span>Frontend Mentor</span>
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://drive.google.com/file/d/1xTya4v9bzS3A0fKyoOdhEvwec9aoOiGD/view"
+						target="_blank"
+						rel="noopener noreferrer"
+						title="Resume"
+					>
+						<i class="fa-solid fa-file-pdf"></i>
+						<span>Resume</span>
+					</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 </template>
@@ -192,6 +246,53 @@
 							}
 							color: #fff;
 						}
+					}
+				}
+			}
+		}
+	}
+	.linksContainer {
+		@include flexoo(row, wrap, center, center);
+		gap: 42px;
+		padding: 16px;
+		margin-top: 16px;
+		ul {
+			@include flexoo(row, wrap, center, center);
+			gap: 42px;
+			li {
+				a {
+					@include flexoo(row, nowrap, flex-start, flex-start);
+					font-size: 1.5rem;
+					color: #fff;
+					i {
+						margin-right: 12px;
+						font-size: 1.9rem;
+					}
+					.icon {
+						margin-right: 12px;
+						width: 28px;
+						height: 28px;
+						.svg-clr {
+							fill: #fff;
+						}
+					}
+					span {
+					}
+				}
+				&:hover {
+					span,
+					i {
+						color: $rclr;
+					}
+					.icon {
+						scale: 1.2;
+
+						.svg-clr {
+							fill: rgb(255, 133, 106);
+						}
+					}
+					i {
+						scale: 1.2;
 					}
 				}
 			}
