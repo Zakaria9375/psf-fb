@@ -96,7 +96,7 @@
 				</li>
 				<li>
 					<a
-						href="https://drive.google.com/file/d/1xTya4v9bzS3A0fKyoOdhEvwec9aoOiGD/view"
+						href="https://drive.google.com/file/d/1TPS6SNyTyy1a3neIxRNmSW6vms_CVuRA/view"
 						target="_blank"
 						rel="noopener noreferrer"
 						title="Resume"
