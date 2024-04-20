@@ -44,9 +44,9 @@
 				</span>
 			</div>
 		</div>
-		<div class="credit">
+		<div class="accomplished">
 			<h1>Credentials</h1>
-			<div class="credentialContainer">
+			<div class="credits">
 				<div v-for="credit in credits" class="credit">
 					<h4>
 						<a :href="credit.link" target="_blank" rel="noopener noreferrer">
@@ -213,22 +213,22 @@
 			}
 		}
 	}
-	.credit {
-		padding: 16px;
+	.accomplished {
+		padding: 16px 24px 32px;
 		h1 {
 			text-align: center;
 			@include fontoo(1.8rem, 600, $wclr);
-			margin-bottom: 0.4rem;
-			margin-top: 1.8rem;
+			margin-bottom: 32px;
+			margin-top: 32px;
 			text-transform: uppercase;
 			opacity: 0.5;
 		}
-		.credentialContainer {
-			@include flexoo(column, wrap, center, center);
+		.credits {
+			@include flexoo(column, wrap, flex-start, flex-start);
 			gap: 1rem;
 			.credit {
 				h4 {
-					text-align: center;
+					text-align: left !important;
 					line-height: 1.25;
 					opacity: 0.85;
 					a {
